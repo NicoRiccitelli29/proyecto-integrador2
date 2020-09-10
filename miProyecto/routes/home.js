@@ -1,8 +1,8 @@
 let express = require('express');
 let router = express.Router();
-let productsController = require('../controllers/homeController');
+let homeController = require('../controllers/homeController');
 
-
+router.get('/',homeController.index)
 
 
 
