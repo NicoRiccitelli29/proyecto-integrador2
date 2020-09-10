@@ -1,6 +1,6 @@
 let homeController ={
     index: function(req, res) { 
-        return res.render ('home', )
+        return res.render ('home' );
     }
 }
 
