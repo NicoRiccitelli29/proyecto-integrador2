@@ -11,7 +11,8 @@ let loginRouter = require('./routes/login');
 let detalleRouter = require('./routes/detalle');
 let agregarPostRouter= require('./routes/agregarPost');
 let miPerfilRouter= require('./routes/miPerfil');
-let registracionRouter= require('./routes/registracion')
+let registracionRouter= require('./routes/registracion');
+let resultadoRouter = require ('./routes/resultado');
 var app = express();
 
 // view engine setup
@@ -31,7 +32,8 @@ app.use('/login', loginRouter);
 app.use('/detalle', detalleRouter);
 app.use('/agregarPost', agregarPostRouter);
 app.use('/miPerfil', miPerfilRouter);
-app.use('/registracion', registracionRouter)
+app.use('/registracion', registracionRouter);
+app.use('/resultado', resultadoRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
