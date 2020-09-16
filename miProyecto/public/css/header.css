@@ -26,7 +26,7 @@ header nav ul li a:hover{
 }
 .logo a{
     font-family: 'Fjalla One', sans-serif;
-    color: white;
+    color: darkorange;
 }
 .logo a:hover {
     text-decoration: none;
@@ -39,11 +39,11 @@ header ul{
 }
 header div.uk-navbar-center ul li{
     padding: 0 10px;
-    border-right: 1px solid white;
+    border-right: 1px solid red;
 }
 header div.uk-navbar-center ul li:nth-last-child(1){
     border-right: none;
 }
 header nav form input, header nav form ::placeholder, header nav form span{
-    color: white !important;
+    color:white !important;
 }
