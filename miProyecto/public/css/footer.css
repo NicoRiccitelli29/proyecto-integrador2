@@ -1,3 +1,6 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+/* FONTS */
 footer{
     height: 40px;
     color: white;
@@ -9,5 +12,7 @@ footer ul{
 }
 
 footer ul li{
+    font-family: cursive;
     margin-top: 0;
+    color: darkorange;
 }
