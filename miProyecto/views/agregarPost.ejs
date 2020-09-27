@@ -9,11 +9,19 @@
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex">
-                <form action="">
-                    <h2>(Formulario para agregar un post)</h2>
-                    <input type="image" name="image" id="image" placeholder="Ingrese su foto">
-                    <input type="text" name="descripcion de la foto" id="descripcion de la foto" placeholder="Ingrese la descripcion">
-                    <input type="submit" value="Postear">
+                <form action="home.ejs">
+                    <h2>Agregar un post</h2>
+                    
+                    
+                    <input type="file" name="image" class="postForm"> <br></br>
+
+                    <label for="descripcion">Ingresá una descripción</label>
+                    <input type="text" name="descripcion" class="postForm"><br></br>
+
+                    <label for="fechaCreacion">Fecha de creación</label>
+                    <input type="date" name="fechaCreacion" class="postForm"><br></br>
+
+                    <input type="submit" class="boton"value="Postear">
 
                 </form>
 

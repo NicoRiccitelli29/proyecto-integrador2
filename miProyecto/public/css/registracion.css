@@ -1,0 +1,42 @@
+::-webkit-input-placeholder { 
+    color: #ccc;
+}
+
+.formRegistracion {
+    background:white;
+    border-radius: 3px;
+    margin: 0 auto;
+    padding: 15px;
+    width: 300px;
+    
+}
+
+.regisLabel {
+    font-size: 15px;
+    margin-bottom:18px;
+}
+
+
+.regisInput {
+    
+    outline: none;
+    border: solid 1px #ccc;
+    padding: 10px;
+    margin-top: 8px;
+    width: 280px;
+}
+
+.regisInput:focus {
+    border-color: palevioletred;
+}
+
+
+.enviar {
+    border-radius: 5px;
+    padding: 10px 0 10px 0;
+    outline: none;
+    border: 0;
+    color: white;
+    width: 280px;
+    background-color: palevioletred;
+}
