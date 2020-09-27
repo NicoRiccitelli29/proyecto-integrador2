@@ -3,10 +3,12 @@
 /* FONTS */
 
 
+
 header{
+    background: linear-gradient(to right,#7652bc 0%,#fa3295 100%) !important;
     height: 55px;
     padding-top: 10px;
-    font-family: montserrat;
+    font-family: helvetica, sans-serif;
 }
 
 header section{
@@ -27,9 +29,10 @@ header nav ul li a:hover{
 }
 .logo a{
     font-family: 'Fjalla One', sans-serif;
-    color: darkorange;
+    color: white;
 }
 .logo a:hover {
+    
     text-decoration: none;
     color: white;
 }
@@ -40,7 +43,7 @@ header ul{
 }
 header div.uk-navbar-center ul li{
     padding: 0 10px;
-    border-right: 1px solid red;
+    border-right: 1px solid white;
 }
 header div.uk-navbar-center ul li:nth-last-child(1){
     border-right: none;
@@ -48,3 +51,9 @@ header div.uk-navbar-center ul li:nth-last-child(1){
 header nav form input, header nav form ::placeholder, header nav form span{
     color:white !important;
 }
+
+.uk-search-input {
+    border-radius: 5px !important;
+   
+}
+
