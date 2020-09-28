@@ -27,7 +27,7 @@
 }
 
 .regisInput:focus {
-    border-color: palevioletred;
+    border-color: #fa3295;
 }
 
 
@@ -38,5 +38,5 @@
     border: 0;
     color: white;
     width: 280px;
-    background-color: palevioletred;
+    background-color: #fa3295;
 }

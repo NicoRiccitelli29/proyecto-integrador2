@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 /* FONTS */
 footer{
+    background-color: black !important;
     height: 40px;
     color: white;
     padding: 0 10px;

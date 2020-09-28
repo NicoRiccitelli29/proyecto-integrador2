@@ -1,5 +1,5 @@
 .info-usuario .foto-perfil{
-    border-radius: 50%;
+    border-radius: 50% !important;
 }
 
 .info-usuario .red-usuario{
