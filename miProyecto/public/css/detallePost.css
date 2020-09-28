@@ -1,3 +1,13 @@
+#Comentar{
+    border-radius: 5px;
+    padding: 10px 0 10px 0;
+    outline: none;
+    border: 0;
+    color: white;
+    width: 280px;
+    background-color: #fa3295;
+}
+
 section.detalle-container{
     border: 1px solid lightgray;
 }

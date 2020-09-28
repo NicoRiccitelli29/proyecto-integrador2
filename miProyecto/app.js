@@ -13,7 +13,7 @@ let detallePostRouter = require('./routes/detallePost');
 let agregarPostRouter= require('./routes/agregarPost');
 let miPerfilRouter= require('./routes/miPerfil');
 let registracionRouter= require('./routes/registracion');
-let resultadoRouter = require ('./routes/resultado');
+let resultadoBusquedaRouter = require ('./routes/resultado');
 var app = express();
 
 // view engine setup
@@ -35,7 +35,7 @@ app.use('/detallePost', detallePostRouter);
 app.use('/agregarPost', agregarPostRouter);
 app.use('/miPerfil', miPerfilRouter);
 app.use('/registracion', registracionRouter);
-app.use('/resultado', resultadoRouter)
+app.use('/resultadoBusqueda', resultadoBusquedaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

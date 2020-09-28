@@ -1,8 +1,8 @@
 let express = require('express');
 let router = express.Router();
-let resultadoController= require('../controllers/resultadoController'); 
+let resultadoBusquedaController= require('../controllers/resultadoBusquedaController'); 
 
-router.get('/', resultadoController.resul)
+router.get('/', resultadoBusquedaController.resul)
 
 
-module.exports = router
+module.exports = router;
