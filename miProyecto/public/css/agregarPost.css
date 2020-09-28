@@ -1,3 +1,46 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css?family=ArchivoBlack');
+/* FONTS */
+
+#NewPost {
+    font-family: "ArchivoBlack", sans-serif;
+    font-weight: 800;
+}
+
+
 .postForm {
-    display: block;
+   
+    background:white;
+    border-radius: 3px;
+    margin: 0 auto;
+    padding: 15px;
+    width: 300px;
+}
+
+.postLabel {
+    font-size: 17px;
+    margin-bottom:18px;
+}
+
+.postInput {
+    outline: none;
+    border: solid 1px #ccc;
+    padding: 10px;
+    margin-top: 8px;
+    width: 280px;
+}
+
+.postInput:focus {
+    border-color: palevioletred;
+}
+
+.boton {
+    border-radius: 5px;
+    padding: 10px 0 10px 0;
+    outline: none;
+    border: 0;
+    color: white;
+    width: 280px;
+    background: #fa3295;
+
 }

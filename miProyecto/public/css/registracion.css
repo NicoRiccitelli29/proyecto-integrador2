@@ -1,3 +1,13 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css?family=ArchivoBlack');
+/* FONTS */
+
+#Registrate {
+    font-family: "ArchivoBlack",sans-serif;
+    font-weight: 800;
+
+}
+
 ::-webkit-input-placeholder { 
     color: #ccc;
 }
@@ -12,7 +22,7 @@
 }
 
 .regisLabel {
-    font-size: 15px;
+    font-size: 17px;
     margin-bottom:18px;
 }
 
