@@ -25,8 +25,6 @@ module.exports = function(sequelize, dataTypes){
     }
 
 
-
-
     const Comment = sequelize.define(alias, cols, config);
 
     return Comment;
