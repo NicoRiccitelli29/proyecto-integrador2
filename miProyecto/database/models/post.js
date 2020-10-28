@@ -11,7 +11,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER,
         },
         url_imagen :{
-            type: dataTypes.VARCHAR,
+            type: dataTypes.STRING,
         },
         texto: {
             type: dataTypes.STRING,
