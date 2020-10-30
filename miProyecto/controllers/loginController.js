@@ -10,9 +10,7 @@ let loginController ={
     log: function(req, res) {
         return res.render('login' );
     },
-    login: function(req, res){
-        
-    }
+    
 }
 
 

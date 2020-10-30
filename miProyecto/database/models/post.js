@@ -17,7 +17,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.STRING,
         },
         fecha_de_creacion : {
-            type:dataTypes.DATETIME,
+            type:dataTypes.DATE,
         }
     }
     let config = {
