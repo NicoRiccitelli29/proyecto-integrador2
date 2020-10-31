@@ -5,7 +5,7 @@ const resultadoBusquedaController = require('../controllers/resultadoBusquedaCon
 
 
 router.get('/', loginController.log);
-//router.post('/', loginController.login);
+router.post('/', loginController.login);
 
 
 
