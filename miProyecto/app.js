@@ -32,6 +32,28 @@ app.use(session(
     saveUninitialized: true }
 ));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function(req, res, next){
+  if(req.session.usuarios != undefined){
+     //locals me deja disponible los datos en todas las vistas
+  res.locals.usuarios = req.session.usuarios
+  }
+  return next();
+})
+app.use(function(req, res, next){
+  if(req.cookies.usuariosId != undefined && req.session.usuarios == undefined){
+    //Buscar al usuario en la db
+    db.usuarios.findByPk(req.cookies.usuariosId)
+    .then(function(usuarios){
+      req.session.usuarios = usuarios;
+      return next();
+
+    })
+    .catch(e => console.log(e))
+    //Lo cargamos en la session
+  }
+  return next();
+})
 //Rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

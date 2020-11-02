@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
-const usuario = db.User;
+const usuarios = db.User;
 
 const op = db.Sequelize.Op;
 
@@ -21,14 +21,22 @@ let loginController ={
         usuarios.findOne({
             where: [{email: req.body.email}]
         })
-        .then(function(usuario){
+        .then(function(usuarios){
             //Que el email no exista en la base de datos 
-            if(usuario == null){
+            if(usuarios == null){
                 return res.send("El email es incorrecto");
             }
-            else if(bcrypt.compareSync(req.body.password, usuario.password) == false){
+            else if(bcrypt.compareSync(req.body.password, usuarios.password) == false){
                 //El email esta bien pero la contraseña es incorrecta 
                 return res.send('La contraseña es incorrecta')
+            }
+            else if (bcrypt.compareSync(req.body.password, usuarios.password) ){
+                req.session.usuarios = usuarios
+                //session se maneja con un modulo
+                if(req.body.rememberme != undefined){
+                    res.cookie('usuariosId', usuarios.id, {maxAge: 20*1000} )
+                }
+                return res.redirect('/');
             }
             
         })
