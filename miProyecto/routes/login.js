@@ -1,9 +1,11 @@
 let express = require('express');
 let router = express.Router();
 let loginController = require('../controllers/loginController');
-const { Router } = require('express');
+const resultadoBusquedaController = require('../controllers/resultadoBusquedaController');
 
-router.get('/', loginController.log)
+
+router.get('/', loginController.log);
+router.post('/', loginController.login);
 
 
 
