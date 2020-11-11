@@ -24,5 +24,7 @@ module.exports = function(sequelize, dataTypes){
         timestamps: false,
     }
     const Post = sequelize.define(alias, cols, config);
+
+
     return Post;
 }

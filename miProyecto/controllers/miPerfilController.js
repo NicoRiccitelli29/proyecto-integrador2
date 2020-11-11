@@ -1,28 +1,24 @@
 let miPerfilController ={
 
     perfil: function(req, res, next){
-        let idUsuarioAMostrar = req.params.id
-        db.usuarios.findOne(
+        let perfilUsuario = req.params.id
+        db.Usuarios.findOne(
             {
                 where: [
-                    { id: idUsuarioAMostrar },
+                    { id: perfilUsuario },
                     
                 ],
                 include: [ 
+                    
                     {
-                        association: "seguidoress"
+                        association: "posteo"
                     },
-                    {
-                        association: "posteos"
-                    },
-                    {
-                        association: "seguido"  
-                    }
+                    
                 ]
             }
         )
-        .then(function(usuario) {
-           res.render("miPerfil" ,{usuario: usuario});
+        .then(function(Usuarios) {
+           res.render("miPerfil" ,{usuario: Usuarios});
         })
         
     },
