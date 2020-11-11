@@ -5,12 +5,24 @@ const usuarios = db.User;
 const op = db.Sequelize.Op;
 
 
+let resultadoBusquedaController = {
 
-let resultadoBusquedaController ={
-    resul: function(req, res){
-        return res.render('resultadoBusqueda')
-    }
+    resul: function(req, res) {
+    
+        let resultadoBusqueda = req.query.buscador;
+
+        db.Usuarios.findAll(
+            {
+                where: [
+                    { nombre: { [op.like]: "%" + resultadoBusqueda + "%"} }
+                ],
+                order: ["nombre"],
+                
+            }
+        )
+        .then(function(Usuarios) {
+            res.render("resultadoBusqueda", {usuarios: Usuarios});
+        })
+    }, 
 }
-
-
 module.exports = resultadoBusquedaController;
