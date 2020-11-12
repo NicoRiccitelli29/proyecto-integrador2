@@ -1,8 +1,7 @@
 let registracionController ={
-    regis: function(req, res){
-        return res.render('registracion');
-    }
-}
+    regis: function(req, res, next){
+    
+        if (req.session.)
 
 
 
