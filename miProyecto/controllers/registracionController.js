@@ -10,7 +10,17 @@ let registracionController = {
     },
 
     store: function(req,res) {
-        return res.send(req.body)
+        
+        let user = {
+            nombre : req.body.nombre,
+            apellido : req.body.apellido, 
+            fecha : req.body.fecha, 
+            numero : req.body.numero, 
+            email : req.body.email, 
+            password : bcrypt.hashSync(req.body.password, 10), 
+        }
+
+        return res.send(user);
     },
 
 }
@@ -20,4 +30,4 @@ let registracionController = {
 
 
 
-module.exports= registracionController
+module.exports= registracionController;
