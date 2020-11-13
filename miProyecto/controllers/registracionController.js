@@ -1,7 +1,8 @@
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
-
+const Usuarios = db.Usuarios;
 const op = db.Sequelize.Op;
+
 
 
 let registracionController = {
@@ -11,16 +12,17 @@ let registracionController = {
 
     store: function(req,res) {
         
-        let user = {
+        let Usuarios = {
             nombre : req.body.nombre,
             apellido : req.body.apellido, 
-            fecha : req.body.fecha, 
-            numero : req.body.numero, 
-            email : req.body.email, 
-            password : bcrypt.hashSync(req.body.password, 10), 
+            correo : req.body.correo, 
+            password : bcrypt.hashSync(req.body.password, 10),
+            telefono : req.body.telefono, 
+            fecha_de_nacimiento : req.body.fecha_de_nacimiento, 
+            
         }
 
-        return res.send(user);
+        return res.send(Usuarios);
     },
 
 }
