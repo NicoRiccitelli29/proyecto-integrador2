@@ -11,18 +11,46 @@ let registracionController = {
     },
 
     store: function(req,res) {
+
+        let nombre = req.body.nombre;
+        let apellido = req.body.apellido; 
+        let correo = req.body.correo; 
+        let password = bcrypt.hashSync(req.body.password, 10);
+        let telefono = req.body.telefono; 
+        let fecha_de_nacimiento = req.body.fecha_de_nacimiento; 
         
         let Usuarios = {
-            nombre : req.body.nombre,
-            apellido : req.body.apellido, 
-            correo : req.body.correo, 
-            password : bcrypt.hashSync(req.body.password, 10),
-            telefono : req.body.telefono, 
-            fecha_de_nacimiento : req.body.fecha_de_nacimiento, 
+            nombre : nombre,
+            apellido : apellido, 
+            correo : correo, 
+            password : password,
+            telefono : telefono, 
+            fecha_de_nacimiento :fecha_de_nacimiento, 
             
         }
 
-        return res.send(Usuarios);
+        db.Usuarios.findOne(
+            {
+                where: [
+                    { nombre: nombre },
+                    
+                ]
+            }
+        ).then(function(usuario){
+            console.log(usuario);
+            if(usuario == null){
+                
+                db.Usuarios.create(Usuarios)
+                .then(function() {
+                    res.redirect("/login");
+                })
+            }else{
+                res.send("El usuario esta repetido")
+
+            }
+        })
+
+    
     },
 
 }
