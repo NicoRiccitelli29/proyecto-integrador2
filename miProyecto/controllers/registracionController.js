@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
-const Usuarios = db.Usuarios;
+
 const op = db.Sequelize.Op;
 
 
@@ -48,6 +48,9 @@ let registracionController = {
                 res.send("El usuario esta repetido")
 
             }
+        })
+        .catch(function(error){
+            console.log(error);
         })
 
     

@@ -23,6 +23,9 @@ let resultadoBusquedaController = {
             res.render("resultadoBusqueda", {usuarios: Usuarios});
             
         })
+        .catch(function(error){
+            console.log(error)
+        })
     }, 
 }
 module.exports = resultadoBusquedaController;

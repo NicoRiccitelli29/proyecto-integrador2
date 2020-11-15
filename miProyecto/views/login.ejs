@@ -9,14 +9,14 @@
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-                <form action="/home/log" class="formLogin">
+                <form action="/login" method="POST" class="formLogin">
 
 
                     <h2 id="Login">INICIAR SESIÓN</h2>
-                    <form action="/login" method="POST" class="iniciar_sesion" >
+                    
                         
                         <label for="email" class="formLabel">Email o Usuario</label>
-                          <input type="text" name="email" value="" required placeholder="E-mail o Usuario" class="formInputs">
+                          <input type="text" name="email" required placeholder="E-mail o Usuario" class="formInputs">
                           <br></br>
                         <label for="contraseña" class="formLabel">Contraseña</label>
                           <input type="password" name="password" value="" required placeholder="Contraseña" class="formInputs" >
@@ -26,7 +26,7 @@
                     </p>
                       <button type="submit" name="button" class="enviar" id="perfil">Iniciar Sesion</button>
                       
-                    </form>
+                    
                 
                 
                 </form>

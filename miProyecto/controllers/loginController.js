@@ -1,25 +1,25 @@
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
-const usuarios = db.User;
-
+const usuarios = db.Usuarios;
 const op = db.Sequelize.Op;
 
 
 
 let loginController ={
-    log: function(req, res) {
-        if(req.session.user != undefined){
-            return res.redirect('/')
+    index: function(req, res) {
+        if(req.session.usuarios!= undefined){
+            return res.redirect('/home')
         }
         else{
-            return res.render('login')     
+            return res.render('login');    
         }
     
     },
     login: function(req, res){
+
         //le vamos a pedir que encuentre el mail
-        usuarios.findOne({
-            where: [{email: req.body.email}]
+        db.Usuarios.findOne({
+            where: {[op.or]: [{ nombre: req.body.email},{correo: req.body.email}]}
         })
         .then(function(usuarios){
             //Que el email no exista en la base de datos 
@@ -30,17 +30,22 @@ let loginController ={
                 //El email esta bien pero la contraseña es incorrecta 
                 return res.send('La contraseña es incorrecta')
             }
+            //coinciden contraseñas
             else if (bcrypt.compareSync(req.body.password, usuarios.password) ){
-                req.session.usuarios = usuarios
+                req.session.usuarios = usuarios;
+
                 //session se maneja con un modulo
                 if(req.body.rememberme != undefined){
-                    res.cookie('usuariosId', usuarios.id, {maxAge: 20*1000} )
+                    res.cookie('usuariosId', usuarios.id, {maxAge: 20*1000} );
+                    return res.redirect('/home');
                 }
-                return res.redirect('/');
+                return res.redirect('/home');
             }
             
         })
-        .catch(e => console.log(e))
+        .catch(function(error){
+            console.log(error)
+        })
     },
 }
 

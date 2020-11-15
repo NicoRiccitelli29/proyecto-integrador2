@@ -25,6 +25,9 @@ let miPerfilController ={
         .then(function(usuario) {
            res.render("miPerfil" ,{usuario: usuario});
         })
+        .catch(function(error){
+            console.log(error);
+        })
         
     },
     
