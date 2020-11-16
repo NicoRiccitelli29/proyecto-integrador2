@@ -23,13 +23,13 @@ let loginController ={
         })
 
         .then(function(users){
-            //Si el email no existe en la base de datos: 
+            //Si el usuario no existe en la base de datos: 
             if(users == null){
-                return res.send("El email es incorrecto")
+                return res.send("El usuario es incorrecto")
             }
 
             else if(bcrypt.compareSync(req.body.password, users.password)== false){
-                //Si el email esta bien pero la contraseña es incorrecta:
+                //Si el usuario esta bien pero la contraseña es incorrecta:
                 //return res.redirect('/home');
                 return res.send('La contraseña es incorrecta')
             }
