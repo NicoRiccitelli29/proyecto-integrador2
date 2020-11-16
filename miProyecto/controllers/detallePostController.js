@@ -10,6 +10,7 @@ let detallePostController ={
     index: function ( req, res){
         return res.render ('detallePost');
     },
+
     porId: function(req, res){
         if(req.query.texto){
             res.redirect("/detallePost/" + req.params.id + "/comentario?=texto=" + req.query.texto)
@@ -32,10 +33,11 @@ let detallePostController ={
         })
     },
 
+
     comentario: function(req,res){
 
         let comentario = {
-            post_id: req.params.id,
+            id: req.params.id,
             usuarios_id: req.session.usuarios.id,
             texto: req.query.texto,
             fecha_de_creacion: 0,
