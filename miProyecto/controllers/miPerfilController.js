@@ -6,7 +6,7 @@ const op = db.Sequelize.Op;
 let miPerfilController ={
 
     perfil: function(req, res, next){
-        let perfilUsuario = req.params.id
+        let perfilUsuario = req.session.usuarios.id
         db.Usuarios.findOne(
             {
                 where: [
@@ -23,7 +23,8 @@ let miPerfilController ={
             } 
         )
         .then(function(usuario) {
-           res.render("miPerfil" ,{usuario: usuario});
+            req.session.usuarios = usuario
+           return res.render("miPerfil" ,{usuario: usuario, query:req.query});
         })
         .catch(function(error){
             console.log(error);

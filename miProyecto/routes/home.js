@@ -4,6 +4,7 @@ let homeController = require('../controllers/homeController');
 const loginController = require('../controllers/loginController');
 
 router.get('/',homeController.index);
+router.get('/miPerfil', homeController.miPerfil);
 
 
 

@@ -1,6 +1,5 @@
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
-const usuarios = db.Usuarios;
 const op = db.Sequelize.Op;
 
 
@@ -13,32 +12,37 @@ let loginController ={
         else{
             return res.render('login');    
         }
-    
     },
-    login: function(req, res){
 
-        //le vamos a pedir que encuentre el mail
+
+    login: function(req, res){
+        //1) Le pedimos que encuentre el mail
+        //2) Chequeamos que la contraseña coincida
         db.Usuarios.findOne({
-            where:  [{correo: req.body.email}]
+            where:  [{ correo: req.body.correo }]
         })
-        .then(function(usuarios){
-            //Que el email no exista en la base de datos 
-            if(usuarios == null){
-                return res.send("El email es incorrecto");
+
+        .then(function(users){
+            //Si el email no existe en la base de datos: 
+            if(users == null){
+                return res.send("El email es incorrecto")
             }
-            else if(bcrypt.compareSync(req.body.password, usuarios.password) == false){
-                //El email esta bien pero la contraseña es incorrecta 
+
+            else if(bcrypt.compareSync(req.body.password, users.password)== false){
+                //Si el email esta bien pero la contraseña es incorrecta:
+                //return res.redirect('/home');
                 return res.send('La contraseña es incorrecta')
             }
-            //coinciden contraseñas
-            else if (bcrypt.compareSync(req.body.password, usuarios.password) ){
-                req.session.usuarios = usuarios;
+
+            //Si coinciden las contraseñas:
+            else if (bcrypt.compareSync(req.body.password, users.password)){
+                req.session.usuarios = users;
 
                 //session se maneja con un modulo
-                if(req.body.rememberme != undefined){
-                    res.cookie('usuariosId', usuarios.id, {maxAge: 20*1000} );
+                /*if(req.body.rememberme != undefined){
+                    res.cookie('usuariosId', users.id, {maxAge: 20*1000} );
                     return res.redirect('/home');
-                }
+                }*/
                 return res.redirect('/home');
             }
             

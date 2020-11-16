@@ -11,7 +11,6 @@ let homeController ={
                 include: [
                   {  all: true, nested: true }
                 ],
-
                 order: [['fecha_de_creacion','DESC']]
             })
 
@@ -27,6 +26,13 @@ let homeController ={
 
         
     },
+    miPerfil: function(req,res){
+        if (req.session.usuarios != null){
+            return res.render('miPerfil')
+        } else {
+            return res.send("Solo los usuarios logueados pueden acceder a esta página")
+        }
+    }
    
 }
 

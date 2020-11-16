@@ -11,8 +11,7 @@ let agregarPostController ={
         }
     },
     storePost: function(req,res) {
-        req.body.imagen
-        req.body.descripcion
+        
 
 
         let postear = {
