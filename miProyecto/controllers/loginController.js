@@ -19,7 +19,7 @@ let loginController ={
 
         //le vamos a pedir que encuentre el mail
         db.Usuarios.findOne({
-            where: {[op.or]: [{ nombre: req.body.email},{correo: req.body.email}]}
+            where:  [{correo: req.body.email}]
         })
         .then(function(usuarios){
             //Que el email no exista en la base de datos 

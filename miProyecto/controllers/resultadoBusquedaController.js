@@ -12,15 +12,15 @@ let resultadoBusquedaController = {
 
         db.Usuarios.findAll(
             {
-                where: [
-                    { nombre: { [op.like]: "%" + resultadoBusqueda + "%"} }
-                ],
-                order: ["nombre"],
+                where: {
+                   [op.or]: [{ nombre: { [op.like]: "%" + resultadoBusqueda + "%"} }, { correo: { [op.like]: "%" + resultadoBusqueda + "%"} } ],
+                }
+               // order: ["nombre"],
                 
             }
         )
         .then(function(Usuarios) {
-            res.render("resultadoBusqueda", {usuarios: Usuarios});
+            res.render("resultadoBusqueda", {usuarios: Usuarios, resultadoBusqueda: resultadoBusqueda});
             
         })
         .catch(function(error){
