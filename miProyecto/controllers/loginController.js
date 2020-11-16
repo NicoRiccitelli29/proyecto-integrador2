@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
 const op = db.Sequelize.Op;
-
+const users = db.Usuarios
 
 
 let loginController ={
@@ -18,7 +18,7 @@ let loginController ={
     login: function(req, res){
         //1) Le pedimos que encuentre el mail
         //2) Chequeamos que la contraseña coincida
-        db.Usuarios.findOne({
+        users.findOne({
             where:  [{ correo: req.body.correo }]
         })
 

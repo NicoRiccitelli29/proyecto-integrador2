@@ -4,8 +4,22 @@ const Usuarios = db.Usuarios;
 const op = db.Sequelize.Op;
 
 let miPerfilController ={
+     
+    perfil: function(req, res) {
+        if(req.session.usuarios != null){
+            return res.render('miPerfil')
+        } else {
+            return res.send("Solo los usuarios logueados pueden acceder al perfil")
+        }
+    }
 
-    perfil: function(req, res, next){
+
+
+
+
+
+
+   /* perfil: function(req, res, next){
         let perfilUsuario = req.session.usuarios.id
         db.Usuarios.findOne(
             {
@@ -31,7 +45,7 @@ let miPerfilController ={
         })
         
     },
-    
+    */
 }
 
 

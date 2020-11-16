@@ -15,7 +15,7 @@ let agregarPostController ={
 
 
         let postear = {
-            usuario_id: req.session.usuarios.id,
+            usuarios_id: req.session.usuarios.id,
             url_imagen: req.body.imagen,
             texto: req.body.descripcion,
             fecha_de_creacion: req.body.fechaCreacion,

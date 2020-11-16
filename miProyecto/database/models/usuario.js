@@ -33,12 +33,12 @@ module.exports = function(sequelize, dataTypes){
     }
     const Usuarios = sequelize.define(alias, cols, config);
 
-    Usuarios.associate = function(models) {
+   /* Usuarios.associate = function(models) {
         Usuarios.hasMany(models.Post, {
             as: "posteos",
             foreignKey: "usuarios_id",
         });
-    }
+    } */
 
 
 

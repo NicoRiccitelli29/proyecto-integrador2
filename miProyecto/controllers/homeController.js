@@ -11,11 +11,12 @@ let homeController ={
                 include: [
                   {  all: true, nested: true }
                 ],
-                order: [['fecha_de_creacion','DESC']]
+                order: [['fecha_de_creacion','DESC']],
+                limit: 10
             })
 
             .then(function(resultados){
-                
+                console.log(resultados);
                 return res.render ('home' , {resultados: resultados});
             })
             .catch(function(error){
