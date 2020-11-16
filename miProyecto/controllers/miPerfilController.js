@@ -17,7 +17,7 @@ let miPerfilController ={
             return res.render('editarPerfil');
         },
 
-    actualizarPerfil: function(req,res) {
+        actualizarPerfil: function(req,res) {
 
         let nombre = req.body.nombre;
         let apellido = req.body.apellido; 
@@ -36,24 +36,17 @@ let miPerfilController ={
             
         }
 
-        db.Usuarios.findOne(
-            {
-                where: [
-                    { nombre: nombre },
-                    
-                ]
-            }
-        ).then(function(usuario){
-            console.log(usuario);
-            if(usuario == null){
+       
                 
-                db.Usuarios.update(Usuarios)
+                db.Usuarios.update(Usuarios, {
+                    where: {id:6}
+                })
                 .then(function() {
                     res.redirect("/miPerfil");
                 })
             
-            }
-        })
+            
+        
         .catch(function(error){
             console.log(error);
         })

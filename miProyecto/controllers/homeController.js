@@ -12,11 +12,17 @@ let homeController ={
                   {  all: true, nested: true }
                 ],
                 order: [['fecha_de_creacion','DESC']],
-                limit: 10
+                limit: 10,
+                include: [
+                    {
+                        association: "usuario"
+                    }
+                ]
             })
 
             .then(function(resultados){
                 console.log(resultados);
+                
                 return res.render ('home' , {resultados: resultados});
             })
             .catch(function(error){
