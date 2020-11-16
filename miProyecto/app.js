@@ -42,7 +42,7 @@ app.use(function(req, res, next){
   return next();
 })
 //Toda la info para las cookies
-/*app.use(function(req, res, next){
+app.use(function(req, res, next){
   if(req.cookies.usuariosId != undefined && req.session.usuarios == undefined){
     //Buscar al usuario en la db
     db.usuarios.findByPk(req.cookies.usuariosId)
@@ -55,7 +55,8 @@ app.use(function(req, res, next){
     //Lo cargamos en la session
   }
   return next();
-})*/
+})
+
 //Rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
