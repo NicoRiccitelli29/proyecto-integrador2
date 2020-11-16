@@ -4,24 +4,30 @@ const post = db.Post;
 
 let agregarPostController ={
     addPost : function(req, res){
-       // if(req.session.usuarios != undefined){
-
+       if(req.session.usuarios != null){
             return res.render('agregarPost')
-        },
-       /* else {
-                res.redirect('/agregarPost')
-               }
-         } */
+        } else {
+            return res.send("Solo los usuarios logueados pueden agregar post")
+        }
+    },
     storePost: function(req,res) {
+        req.body.imagen
+        req.body.descripcion
+
+
         let postear = {
             usuario_id: req.session.usuarios.id,
             url_imagen: req.body.imagen,
             texto: req.body.descripcion,
-            fecha_de_creacion: req.body.fechaCreacion
+            fecha_de_creacion: req.body.fechaCreacion,
         }
-        post.create(postear);
-        return res.redirect('/home');
-
+        post.create(postear)
+        .then(function(){
+        res.redirect('/home');
+        })
+        .catch(function(error){
+            console.log(error);
+        })
 
     }
 }
