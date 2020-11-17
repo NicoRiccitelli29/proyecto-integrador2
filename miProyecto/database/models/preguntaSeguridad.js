@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes){
-    let alias = "preguntaSeguridad"
+    let alias = 'PreguntaSeguridad';
 
     let cols = {
         id: {
@@ -10,7 +10,7 @@ module.exports = function(sequelize, dataTypes){
          usuarios_id : {
              type: dataTypes.INTEGER,
          },
-        PreguntaSeguridad : {
+        pregunta : {
             type: dataTypes.STRING
         
         },
@@ -18,19 +18,19 @@ module.exports = function(sequelize, dataTypes){
     }
 
     let config = {
-        tableName : "preguntaSeguridad",
+        tableName : "PreguntaSeguridad",
         timestamps : false,
     }
 
- const preguntaSeguridad = sequelize.define(alias, cols, config);
+ const PreguntaSeguridad = sequelize.define(alias, cols, config);
 
-   preguntaSeguridad.associate = function(models) {
-        preguntaSeguridad.belongsTo(models.Usuarios, {
-            as: "usuario",
-            foreignKey: "preguntaSeguridad_id",
-        });
+   PreguntaSeguridad.associate = function(models) {
+        PreguntaSeguridad.belongsTo(models.Usuarios, {
+           as: "PreguntaSeguridad",
+           foreignKey: "usuarios_id",
+       });
     }
 
 
-    return preguntaSeguridad;
+    return PreguntaSeguridad;
 }

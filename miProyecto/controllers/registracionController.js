@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
-const preguntas = db.preguntaSeguridad;
+const preguntas = db.PreguntaSeguridad;
 
 const op = db.Sequelize.Op;
 
