@@ -37,6 +37,22 @@
                     <label for="contraseña" class="regisLabel">Contraseña</label>
                     <input type="password" name="password" class="regisInput"
                         placeholder="Ingrese su contraseña"><br></br>
+
+                    <label for="pregunta de seguridad">Pregunta de seguridad</label>
+                    <select name="pregunta" type="text" class="regisLabel" required>
+                        <option value=""></option>
+
+                        <% for (let i=0; i<resultados.length; i++) {%>
+                        <option value="<%= resultados[i].id%>"><%= resultados[i].pregunta%></option>
+                        
+                        <%}%>
+                    </select>
+
+                    <label for="respuesta de seguridad">Respuesta de seguridad</label>
+                    <input name="respuesta" type="text" class="regisLabel" required>
+                    
+
+
                     <p> Estoy de acuerdo con <a href="#"> Terminos y condiciones</a></p>
                     <button type="submit" value="Registrar" class="enviar">Registrar</button>
                     <p><a href="/login"> Ya tengo una cuenta!</a></p>

@@ -7,7 +7,16 @@ const op = db.Sequelize.Op;
 
 let registracionController = {
     index: function(req, res,){
-        return res.render('registracion');
+        preguntas.findAll({
+            order: [["id", "ASC"]]
+        })
+        .then(function(resultados){
+            return res.render("registracion", {resultados: resultados})
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+
     },
 
     store: function(req,res) {

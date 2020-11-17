@@ -50,6 +50,19 @@ let detallePostController ={
 
 
 
+    },
+
+    editar: function(req,res) {
+
+        let idEdit = req.params.id
+
+        post.findByPk(idEdit)
+        .then(function(postear){
+            return res.render("EditarPost", {postear})
+        })
+        .catch(function(error){
+            console.log(error);
+        })
     }
 
 }
