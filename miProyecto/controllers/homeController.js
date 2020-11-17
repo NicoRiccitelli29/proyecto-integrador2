@@ -21,7 +21,7 @@ let homeController ={
             })
 
             .then(function(resultados){
-                console.log(resultados);
+                //console.log(resultados);
                 
                 return res.render ('home' , {resultados: resultados});
             })

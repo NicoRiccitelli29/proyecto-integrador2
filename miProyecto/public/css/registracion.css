@@ -12,13 +12,12 @@
     color: #ccc;
 }
 
-.formRegistracion {
+.registracion {
     background:white;
     border-radius: 3px;
     margin: 0 auto;
     padding: 15px;
     width: 300px;
-    
 }
 
 .regisLabel {
